@@ -1,13 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LandingPage from "./landingpage";
 import Video from "./video";
 
 const wallet = null;
 
-if (typeof window !== 'undefined') {
-  // Perform localStorage action
-  const wallet = localStorage.getItem('walletAddress')
-}
+
+
 
 let videos = [{
   horizontal: false, 
@@ -53,8 +51,8 @@ let videos = [{
 export default function index() {
   return (
     <>
-{wallet ?  <LandingPage /> : 
-{/* <div className="w-full  h-screen flex flex-row  bg-[#1a1c1f]">
+{!wallet ?  <LandingPage /> : 
+<div className="w-full  h-screen flex flex-row  bg-[#1a1c1f]">
 {videos.map((video) => (
         <div
             className="w-80"
@@ -67,8 +65,7 @@ export default function index() {
         </div>
 ))}
 
-</div> */}
-<h1> hello</h1>
+</div> 
 
 }
 </>
